@@ -257,14 +257,19 @@ button {
   gap: 40px 32px;
 }
 .film {
-  flex: 1 1 260px;
+  /* 横長(16:9)と縦長(9:16)を並べたとき、映像の高さがそろうように幅の比率を決める */
+  flex: 1.778 1 0;
+  min-width: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
+.film-vertical {
+  flex: 0.5625 1 0;
+}
 .film-lead {
-  flex-basis: 100%;
+  flex: 1 1 100%;
   margin-bottom: 8px;
 }
 .film figcaption {
@@ -284,6 +289,9 @@ button {
   aspect-ratio: 16 / 9;
   background: #161616;
   overflow: hidden;
+}
+.video-frame.vertical {
+  aspect-ratio: 9 / 16;
 }
 .video-frame iframe {
   position: absolute;
@@ -560,6 +568,14 @@ button {
   }
   .section-head {
     flex-basis: 100%;
+  }
+  .film,
+  .film-vertical {
+    flex: 1 1 100%;
+  }
+  .film-vertical {
+    max-width: 300px;
+    margin: 0 auto;
   }
   .photos {
     grid-template-columns: repeat(2, minmax(0, 1fr));

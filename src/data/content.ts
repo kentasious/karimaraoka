@@ -38,11 +38,13 @@ export const statement: Text = {
 };
 
 // ---- 映像（Film）---------------------------------------------
-// 1本目が大きく表示されます。youtubeId は URL の youtu.be/ のあとの文字列です。
-export const films = [
-  { title: "NOWNESS ASIA「ANAMNESIS」", note: { ja: "Dance Film — Main Act", en: "Dance Film — Main Act" } as Text, youtubeId: "TcOjAuIn_ZE" },
-  { title: "満島ひかり「Shadow Dance」", note: { ja: "Music Video", en: "Music Video" } as Text, youtubeId: "W7AeETUJwy4" },
-  { title: "MINTIA CM「雨上がり」篇", note: { ja: "2025 — CM", en: "2025 — Commercial" } as Text, youtubeId: "cFRMVNjlM5w" },
+// 1本目が大きく表示されます。youtubeId は URL の youtu.be/ や shorts/ のあとの文字列です。
+// 縦長の動画（ショート）は vertical: true にします。
+type Film = { title: string; note: Text; youtubeId: string; vertical?: boolean };
+export const films: Film[] = [
+  { title: "［作品名 1］", note: { ja: "Dance Film", en: "Dance Film" }, youtubeId: "flLozhnKNHg" },
+  { title: "［作品名 2］", note: { ja: "Dance Film", en: "Dance Film" }, youtubeId: "sIzsz9c0sBc" },
+  { title: "［作品名 3］", note: { ja: "Short", en: "Short" }, youtubeId: "XYIG18eKyNQ", vertical: true },
 ];
 
 // ---- 写真（Photographs）-------------------------------------

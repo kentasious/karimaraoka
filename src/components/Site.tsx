@@ -82,8 +82,8 @@ export function Site({ lang }: { lang: Lang }) {
         <Section id="film" title="Film" sub={sub(t.film)}>
           <div className="films">
             {films.map((f, i) => (
-              <figure key={f.youtubeId} className={i === 0 ? "film film-lead" : "film"}>
-                <VideoEmbed youtubeId={f.youtubeId} title={f.title} playLabel={t.play} large={i === 0} />
+              <figure key={f.youtubeId} className={["film", i === 0 && "film-lead", f.vertical && "film-vertical"].filter(Boolean).join(" ")}>
+                <VideoEmbed youtubeId={f.youtubeId} title={f.title} playLabel={t.play} large={i === 0} vertical={f.vertical} />
                 <figcaption>
                   <span>{f.title}</span>
                   <span className="muted small">{f.note[lang]}</span>
