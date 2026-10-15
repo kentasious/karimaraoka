@@ -17,9 +17,7 @@ export const profile = {
   instagramHandle: "@karimaraoka",
 };
 
-// ---- 依頼フォームの送信先 ------------------------------------
-// Formspree で発行されるURLをここに入れます（例: https://formspree.io/f/xxxxxxxx）
-export const formEndpoint = "";
+// 依頼フォームの送り先メールアドレスは wrangler.jsonc で設定しています。
 
 // ---- トップのスライドショー --------------------------------
 // 縦横比が違う写真もそのまま使えます。順番どおりに切り替わります。

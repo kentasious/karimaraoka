@@ -1,0 +1,22 @@
+{
+  // Cloudflare Workers の設定
+  // サイト本体（out/ のファイル）を配信し、/api/contact だけはフォームのメール送信を行う
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "karimaraoka",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  // 依頼フォームの送り先。このアドレス以外には送れないように固定している
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "karim2001514@gmail.com"
+    }
+  ],
+  "observability": { "enabled": true }
+}

@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import {
   type Lang,
   profile,
-  formEndpoint,
   heroSlides,
   heroIntervalSeconds,
   statement,
@@ -149,7 +148,7 @@ export function Site({ lang }: { lang: Lang }) {
             <p>{t.contactLead}</p>
             {t.contactSub && <p className="muted small">{t.contactSub}</p>}
           </div>
-          <ContactForm endpoint={formEndpoint} labels={t} instagram={profile.instagram} />
+          <ContactForm endpoint="/api/contact" labels={t} instagram={profile.instagram} />
         </Section>
       </main>
 
