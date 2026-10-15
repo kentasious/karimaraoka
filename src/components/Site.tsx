@@ -5,7 +5,8 @@ import {
   heroSlides,
   heroIntervalSeconds,
   statement,
-  films,
+  reel,
+  filmWorks,
   photographs,
   bio,
   mainWorks,
@@ -80,16 +81,34 @@ export function Site({ lang }: { lang: Lang }) {
         )}
 
         <Section id="film" title="Film" sub={sub(t.film)}>
-          <div className="films">
-            {films.map((f, i) => (
-              <figure key={f.youtubeId} className={["film", i === 0 && "film-lead", f.vertical && "film-vertical"].filter(Boolean).join(" ")}>
-                <VideoEmbed youtubeId={f.youtubeId} title={f.title} playLabel={t.play} large={i === 0} vertical={f.vertical} />
-                <figcaption>
-                  <span>{f.title}</span>
-                  <span className="muted small">{f.note[lang]}</span>
-                </figcaption>
-              </figure>
-            ))}
+          <div className="film-groups">
+            {reel.length > 0 && (
+              <div className="film-lead">
+                <VideoEmbed youtubeId={reel[0].youtubeId} title={`${profile.nameFull.en} — Film 1`} playLabel={t.play} large vertical={reel[0].vertical} />
+              </div>
+            )}
+            {reel.length > 1 && (
+              <div className="film-row">
+                {reel.slice(1).map((v, i) => (
+                  <div key={v.youtubeId} className={v.vertical ? "film film-vertical" : "film"}>
+                    <VideoEmbed youtubeId={v.youtubeId} title={`${profile.nameFull.en} — Film ${i + 2}`} playLabel={t.play} vertical={v.vertical} />
+                  </div>
+                ))}
+              </div>
+            )}
+            {filmWorks.length > 0 && (
+              <div className="film-works">
+                {filmWorks.map((f) => (
+                  <figure key={f.youtubeId} className="film-work">
+                    <VideoEmbed youtubeId={f.youtubeId} title={f.title} playLabel={t.play} />
+                    <figcaption>
+                      <span>{f.title}</span>
+                      <span className="muted small">{f.note[lang]}</span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            )}
           </div>
         </Section>
 

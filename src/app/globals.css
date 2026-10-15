@@ -251,37 +251,40 @@ button {
 }
 
 /* ---- film ---- */
-.films {
+.film-groups {
   display: flex;
-  flex-wrap: wrap;
-  gap: 40px 32px;
+  flex-direction: column;
+  gap: 32px;
+}
+.film-row {
+  display: flex;
+  gap: 32px;
 }
 .film {
   /* 横長(16:9)と縦長(9:16)を並べたとき、映像の高さがそろうように幅の比率を決める */
   flex: 1.778 1 0;
   min-width: 0;
+}
+.film-vertical {
+  flex: 0.5625 1 0;
+}
+.film-works {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 24px;
+  margin-top: 48px;
+}
+.film-work {
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-.film-vertical {
-  flex: 0.5625 1 0;
-}
-.film-lead {
-  flex: 1 1 100%;
-  margin-bottom: 8px;
-}
-.film figcaption {
+.film-work figcaption {
   display: flex;
   flex-direction: column;
   gap: 2px;
   font-size: 12px;
-}
-.film-lead figcaption {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 .video-frame {
   position: relative;
@@ -569,13 +572,21 @@ button {
   .section-head {
     flex-basis: 100%;
   }
+  .film-row {
+    flex-direction: column;
+  }
   .film,
   .film-vertical {
-    flex: 1 1 100%;
+    flex: none;
+    width: 100%;
   }
   .film-vertical {
     max-width: 300px;
-    margin: 0 auto;
+    align-self: center;
+  }
+  .film-works {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 24px;
   }
   .photos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
