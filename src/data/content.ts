@@ -33,8 +33,8 @@ export const heroIntervalSeconds = 8; // 写真が切り替わる間隔（秒）
 // ---- ステートメント ------------------------------------------
 // 空欄（""）にするとセクションごと非表示になります。
 export const statement: Text = {
-  ja: "［ステートメント：カリムさん自身の言葉で、ダンスへの思いを2〜3行］",
-  en: "[Statement — two or three lines in Karim's own words]",
+  ja: "“To move, to feel, to inspire.”",
+  en: "“To move, to feel, to inspire.”",
 };
 
 // ---- 映像（Film）---------------------------------------------

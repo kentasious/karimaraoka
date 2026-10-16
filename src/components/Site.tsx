@@ -76,7 +76,8 @@ export function Site({ lang }: { lang: Lang }) {
 
         {statement[lang] && (
           <section aria-label="Statement" className="statement">
-            <p className={lang === "ja" ? "statement-ja" : "statement-en"}>{statement[lang]}</p>
+            {/* 日本語が含まれていれば明朝体、英語だけならセリフ体の斜体で表示 */}
+            <p className={/[぀-ヿ一-鿿]/.test(statement[lang]) ? "statement-ja" : "statement-en"}>{statement[lang]}</p>
           </section>
         )}
 

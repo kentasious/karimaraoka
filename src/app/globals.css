@@ -210,8 +210,10 @@ button {
 .statement-en {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 20px;
-  line-height: 1.7;
+  font-weight: 300;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 
 /* ---- sections ---- */
