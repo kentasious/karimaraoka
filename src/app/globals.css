@@ -360,6 +360,15 @@ button {
   width: min(92vw, calc(84dvh * 9 / 16));
   aspect-ratio: 9 / 16;
 }
+/* PCでは画面いっぱいにせず、中央に程よいサイズで表示する */
+@media (min-width: 721px) {
+  .video-modal-frame {
+    width: min(80vw, 960px, calc(70dvh * 16 / 9));
+  }
+  .video-modal-frame.vertical {
+    width: min(80vw, 360px, calc(70dvh * 9 / 16));
+  }
+}
 .video-modal-frame iframe {
   position: absolute;
   inset: 0;
