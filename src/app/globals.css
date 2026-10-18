@@ -330,6 +330,72 @@ button {
   position: relative;
 }
 
+/* ---- 動画のモーダル（画面中央で大きく再生）---- */
+.video-modal {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: none;
+  max-height: none;
+  width: 100vw;
+  height: 100dvh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.video-modal[open] {
+  display: flex;
+  animation: modal-in 0.4s ease;
+}
+.video-modal::backdrop {
+  background: rgba(12, 12, 12, 0.94);
+}
+.video-modal-frame {
+  position: relative;
+  width: min(92vw, calc(84dvh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  background: #000000;
+}
+.video-modal-frame.vertical {
+  width: min(92vw, calc(84dvh * 9 / 16));
+  aspect-ratio: 9 / 16;
+}
+.video-modal-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-modal-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.video-modal-close:hover {
+  opacity: 1;
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* ---- photographs ---- */
 .photos {
   display: grid;
@@ -609,5 +675,8 @@ button {
   .hero-slide,
   .video-poster img {
     transition: none;
+  }
+  .video-modal[open] {
+    animation: none;
   }
 }
