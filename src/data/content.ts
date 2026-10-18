@@ -44,9 +44,9 @@ export const statement: Text = {
 // カリムさん自身の映像（キャプションなし）。1本目が大きく、2本目以降は横に並びます。
 type ReelVideo = { youtubeId: string; vertical?: boolean };
 export const reel: ReelVideo[] = [
-  { youtubeId: "flLozhnKNHg" },
-  { youtubeId: "sIzsz9c0sBc" },
-  { youtubeId: "XYIG18eKyNQ", vertical: true },
+  { youtubeId: "2mXIhlfSBII" },
+  { youtubeId: "hP8yj3fiNtU" },
+  { youtubeId: "KfcRMRZaMvM", vertical: true },
 ];
 
 // 出演作（キャプションつき）。3本ずつ横に並びます。
